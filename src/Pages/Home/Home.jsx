@@ -6,6 +6,7 @@ import ProductImage from "./ProductImage"
 import CounterClock from "./CounterClock"
 import CustomerReview from "./CustomerReview"
 import OrderComplete from "./OrderComplete"
+import Contact from "./Contact"
 import Footer from "./Footer"
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Why/>
       <ProductImage/>
       <CounterClock/>
+      <Contact/>
       <CustomerReview/>
       <OrderComplete/>
       <Footer/>
