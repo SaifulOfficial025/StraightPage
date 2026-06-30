@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 
 function Footer() {
   return (
@@ -14,6 +15,21 @@ function Footer() {
         >
           +8801805441475
         </a>
+      </div>
+
+      <div className="mt-8 flex flex-col items-center gap-3">
+        {/* <a 
+          href="https://wa.me/8801756018512" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-gray-700 hover:text-[#25D366] transition-colors font-medium text-base"
+        >
+          <FaWhatsapp className="text-xl text-[#25D366]" /> WhatsApp: <span className="font-bold">+8801756018512</span>
+        </a> */}
+        
+        <p className="text-sm text-gray-500 mt-2">
+          ওয়েবসাইট ডেভেলপার: <a href="https://wa.me/8801756018512" target="_blank" rel="noopener noreferrer" className="text-[#2b5938] font-semibold hover:text-[#1f4229] hover:underline transition-colors">Md. Saiful Islam Rimon</a>
+        </p>
       </div>
     </footer>
   )
