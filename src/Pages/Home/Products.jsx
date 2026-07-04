@@ -16,7 +16,7 @@ function Products({ products, selected, setSelected }) {
           <div 
             key={product.id}
             onClick={() => setSelected(product.id)}
-            className={`relative flex items-center p-4 border rounded-lg cursor-pointer transition-all duration-200 ${
+            className={`relative flex items-center p-4 border  cursor-pointer transition-all duration-200 ${
               product.highlight 
                 ? 'border-[#ff9800]/40 bg-[#fff8ef] hover:bg-[#fff3e0]' 
                 : 'border-gray-200 bg-white hover:bg-gray-50'

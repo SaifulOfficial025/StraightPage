@@ -1,8 +1,9 @@
 import React from 'react'
+import Features from './Features'
 
 function Hero() {
   return (
-    <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center py-20 px-4 overflow-hidden bg-gradient-to-br from-[#021f0d] via-[#05381a] to-[#021f0d] font-sans">
+    <section className="relative w-full flex flex-col items-center pt-20 pb-4 px-4 overflow-hidden bg-gradient-to-br from-[#021f0d] via-[#05381a] to-[#021f0d] font-sans">
       
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -41,9 +42,9 @@ function Hero() {
         </div>
 
         {/* Call to Action Button */}
-        <button className="relative overflow-hidden group bg-gradient-to-r from-yellow-400 to-[#ffc107] text-[#021f0d] font-black py-4 px-12 md:px-16 rounded-lg text-xl md:text-2xl shadow-[0_0_30px_rgba(250,204,21,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] active:scale-95 cursor-pointer">
+        <button className="relative w-full max-w-2xl md:max-w-4xl overflow-hidden group bg-gradient-to-r from-yellow-400 to-[#ffc107] text-[#021f0d] font-black py-5 px-6  text-xl md:text-2xl shadow-[0_0_30px_rgba(250,204,21,0.3)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] active:scale-95 cursor-pointer mx-4">
           <span className="relative z-10 flex items-center justify-center gap-3">
-            অর্ডার করুন
+            অর্ডার করতে চাই 
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -51,6 +52,8 @@ function Hero() {
           <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
         </button>
       </div>
+
+      <Features/>
       
       {/* Custom Styles for animations */}
       <style>{`

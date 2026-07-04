@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaStar } from 'react-icons/fa'
 
 function CustomerReview() {
   const reviews = [1, 2, 3]; // Mock data for 3 review cards
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % reviews.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [reviews.length]);
 
   return (
     <section className="w-full font-sans bg-white pb-16">
@@ -25,13 +33,14 @@ function CustomerReview() {
 
       {/* Reviews Carousel/Grid */}
       <div className="max-w-6xl mx-auto px-4 mt-12">
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar">
+        
+        {/* Desktop View (Grid) */}
+        <div className="hidden md:grid grid-cols-3 gap-6">
           {reviews.map((item) => (
             <div 
               key={item} 
-              className="flex-shrink-0 w-full sm:w-[45%] md:w-[31%] snap-center rounded-xl border border-gray-300 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white overflow-hidden p-2 md:p-3"
+              className="rounded-xl border border-gray-300 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white overflow-hidden p-2 md:p-3"
             >
-              {/* As requested: only one image per card */}
               <img 
                 src="/review.png" 
                 alt={`Customer Review ${item}`} 
@@ -40,28 +49,42 @@ function CustomerReview() {
             </div>
           ))}
         </div>
-        
-        {/* Carousel Indicators (Static Mockup) */}
-        <div className="flex justify-center items-center gap-2.5 mt-2">
-          <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-          <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-          <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-          <span className="w-2.5 h-2.5 rounded-full bg-gray-800"></span>
-          <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-          <span className="w-2 h-2 rounded-full bg-gray-300"></span>
+
+        {/* Mobile View (Auto-scrolling Carousel) */}
+        <div className="md:hidden relative w-full overflow-hidden px-2">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {reviews.map((item) => (
+              <div key={item} className="w-full flex-shrink-0 px-2 pb-4">
+                <div className="rounded-xl border border-gray-300 shadow-sm bg-white overflow-hidden p-2">
+                  <img 
+                    src="/review.png" 
+                    alt={`Customer Review ${item}`} 
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {reviews.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeIndex === idx ? 'bg-[#023e1a] w-5' : 'bg-gray-300 w-2'
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
+
       </div>
-      
-      {/* Hide Scrollbar Style */}
-      <style>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   )
 }

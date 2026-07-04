@@ -15,17 +15,33 @@ function ProductImage() {
       </div>
 
       {/* Content Section */}
-      <div className="text-center space-y-6 z-20">
+      <div className="text-center space-y-6 z-20 w-full max-w-5xl mx-auto flex flex-col items-center">
         {/* Caption */}
         <p className="text-xl md:text-2xl font-extrabold text-[#023e1a] tracking-wide drop-shadow-sm">
           একমাত্র BSTI অনুমোদিত সেরা চা
         </p>
         
         {/* Order Button */}
-        <button className="bg-gradient-to-r from-yellow-400 to-[#ffc107] text-black font-extrabold py-4 px-16 md:px-24 rounded-lg text-xl md:text-2xl shadow-[0_10px_30px_rgba(255,193,7,0.4)] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(255,193,7,0.6)] active:scale-95 active:translate-y-1 cursor-pointer">
-          অর্ডার করুন
+        <button className="relative w-full max-w-2xl md:max-w-4xl overflow-hidden group bg-gradient-to-r from-yellow-400 to-[#ffc107] text-[#021f0d] font-black py-5 px-6 text-xl md:text-2xl shadow-[0_0_30px_rgba(250,204,21,0.3)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] active:scale-95 cursor-pointer mx-4">
+          <span className="relative z-10 flex items-center justify-center gap-3">
+            অর্ডার করতে চাই 
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
         </button>
       </div>
+
+      {/* Custom Styles for animations */}
+      <style>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+        .animate-shimmer {
+          animation: shimmer 1.5s infinite;
+        }
+      `}</style>
 
     </section>
   )
